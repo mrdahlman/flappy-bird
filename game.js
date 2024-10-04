@@ -10,11 +10,21 @@ let score = 0;
 let gameInterval;
 let pipeInterval;
 
-// Control bird with space key
+// Event listeners for controlling the bird
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Space') {
         velocity = -7; // Bird jumps upwards when space is pressed
     }
+});
+
+// **NEW**: Mobile-friendly control using tap/click on the game area
+gameArea.addEventListener('click', function() {
+    velocity = -7; // Bird jumps upwards when tapping/clicking
+});
+
+// **NEW**: Also handle touch events for mobile (same as clicking)
+gameArea.addEventListener('touchstart', function() {
+    velocity = -7; // Bird jumps upwards on mobile touch
 });
 
 // Create pipes
